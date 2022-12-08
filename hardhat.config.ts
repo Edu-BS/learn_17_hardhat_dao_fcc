@@ -18,6 +18,11 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY || ""
 const config: HardhatUserConfig = {
     defaultNetwork: "hardhat",
     networks: {
+        localhost: {
+            chainId: 31337,
+            allowUnlimitedContractSize: true,
+            blockGasLimit: 12450000
+        },
         hardhat: {
             chainId: 31337,
             allowUnlimitedContractSize: true,

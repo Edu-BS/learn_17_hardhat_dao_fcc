@@ -20,6 +20,8 @@ const config: HardhatUserConfig = {
     networks: {
         hardhat: {
             chainId: 31337,
+            allowUnlimitedContractSize: true,
+            blockGasLimit: 12450000
         },
         goerli: {
             url: GOERLI_RPC_URL,

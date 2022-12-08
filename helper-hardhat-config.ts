@@ -52,3 +52,4 @@ export const INITIAL_PRICE = "200000000000000000000"
 export const VERIFICATION_BLOCK_CONFIRMATIONS = 6
 export const frontEndContractsFile = "../nextjs-nft-marketplace-thegraph-fcc/constants/networkMapping.json"
 export const frontEndAbiLocation = "../nextjs-nft-marketplace-thegraph-fcc/constants/"
+export const MIN_DELAY=3600

@@ -22,7 +22,6 @@ const deployGovernanceToken: DeployFunction = async function ({
 
     await delegate(governanceToken.address, deployer)
     log("Delegated!")
-    log("------------")
 }
 
 const delegate = async (governanceTokenAddress: string, deletedAccount: string) => {

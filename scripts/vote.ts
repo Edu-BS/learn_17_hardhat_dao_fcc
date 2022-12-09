@@ -16,13 +16,14 @@ import { propose } from "./propose"
 const proposals = JSON.parse(fs.readFileSync(proposalsFile, "utf-8"))
 const index = proposals[network.config.chainId!].length - 1
 
-async function main(proposalIndex: number) {
+export async function vote(proposalIndex: number) {
     const proposals = JSON.parse(fs.readFileSync(proposalsFile, "utf-8"))
     const proposalId = proposals[network.config.chainId!][proposalIndex]
     // 0 = Agains, 1 = For, 2 = Abstain
     const voteWay = 1
     const governor: GovernorContract = await ethers.getContract("GovernorContract")
     const reason = "I like it"
+    console.log(`CastVoteWithReaseon: ${proposalId}, ${voteWay}, ${reason}`);
     await governor
         .castVoteWithReason(proposalId, voteWay, reason)
         .then(async (resTx) => {
@@ -43,7 +44,7 @@ async function main(proposalIndex: number) {
     console.log("Voted!")
 }
 
-main(index)
+vote(index)
     .then(() => process.exit(0))
     .catch((err) => {
         console.error(err)
